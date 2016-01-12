@@ -1,0 +1,42 @@
+{
+  "name": "mithril-boilerplate",
+  "version": "0.1.0",
+  "description": "",
+  "engines": {
+    "node": ">=4.2.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --progress --colors",
+    "server": "webpack-dev-server --progress --colors",
+    "pack": "webpack --progress --colors --watch",
+    "test": "mocha test/**/*.test.js",
+    "test:watch": "mocha -w test/**/*.test.js",
+    "doc": "esdoc -c esdoc.json",
+    "clean": "de esdoc dist",
+    "lint": "eslint src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/70-10/mithril-boilerplate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/70-10/mithril-boilerplate/issues"
+  },
+  "homepage": "https://github.com/70-10/mithril-boilerplate#readme",
+  "dependencies": {
+    "mithril": "0.2.0"
+  },
+  "devDependencies": {
+    "del-cli": "0.1.2",
+    "esdoc": "0.4.3",
+    "eslint": "1.10.3",
+    "mocha": "2.3.4",
+    "power-assert": "1.2.0",
+    "webpack": "1.12.11",
+    "webpack-dev-server": "1.14.1"
+  }
+}
