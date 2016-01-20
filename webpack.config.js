@@ -2,18 +2,27 @@ const webpack = require("webpack");
 const path = require("path");
 
 module.exports = {
-  context: path.resolve(__dirname, "src"),
+  context: path.join(__dirname, "./src"),
   entry: {
-    main: "./app.js",
+    js: "./app.js",
+    html: "./index.html",
     vendor: ["mithril"]
   },
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "[name].bundle.js"
+    path: path.join(__dirname, "./dist"),
+    filename: "bundle.js"
   },
   module: {
     loaders: [
-      { test: /\.js$/, loader: "babel-loader"}
+      {
+        test: /\.html$/,
+        loader: 'file?name=[name].[ext]'
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "babel-loader"
+      }
     ]
   },
   resolve: {
@@ -21,9 +30,12 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      __DEV__: JSON.stringify(JSON.parse(process.env.BUILD_DEV || 'true')),
-      __PRERELEASE__: JSON.stringify(JSON.parse(process.env.BUILD_PRERELEASE || 'false'))
+      "process.env": { NODE_ENV: JSON.stringify(process.env.NODE_ENV || "development") }
     }),
-    new webpack.optimize.CommonsChunkPlugin('common.js')
-  ]
+    new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.bundle.js")
+  ],
+  devServer: {
+    contentBase: "./src",
+    hot: true
+  }
 };

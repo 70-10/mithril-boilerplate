@@ -1,9 +1,9 @@
-import path from "path";
+import m from "mithril";
+import Todo from "./component";
+import TodoModel from "./model";
 
-if (__DEV__) {
-  console.log("DEBUG LOGGING");
-};
+const model = new TodoModel();
+const component = new Todo(model.vm);
+const region = document.getElementById("app");
 
-if (__PRERELEASE__) {
-  console.log("PRERELEASE LOG");
-};
+m.mount(region, component);
