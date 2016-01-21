@@ -21,16 +21,16 @@ export default class TodoModel {
 }
 
 class ViewModel {
-  constructor(cls) {
-    this.cls = cls;
+  constructor(model) {
+    this.model = model;
   }
 
   init() {
-    this.list = new this.cls.TodoList();
+    this.list = new this.model.TodoList();
     this.description = m.prop("");
     this.add = () => {
       if (this.description()) {
-        this.list.push(new this.cls.Todo({ description: this.description() }));
+        this.list.push(new this.model.Todo({ description: this.description() }));
         this.description("");
       }
     };
