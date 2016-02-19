@@ -11,10 +11,10 @@
     "build:watch": "webpack --progress --colors --watch -p",
     "build:release": "NODE_ENV=production webpack --progress --colors -p",
     "server": "webpack-dev-server --history-api-fallback --hot --inline --progress --colors --port 3000",
-    "test": "mocha test/**/*.test.js",
-    "test:watch": "mocha -w test/**/*.test.js",
+    "test": "nyc ava",
     "doc": "esdoc -c esdoc.json",
-    "clean": "de esdoc dist",
+    "report": "nyc report --reporter=html",
+    "clean": "de esdoc dist coverage .nyc_output",
     "lint": "eslint src"
   },
   "repository": {
@@ -41,9 +41,13 @@
     "esdoc": "0.4.3",
     "eslint": "1.10.3",
     "file-loader": "0.8.5",
-    "mocha": "2.3.4",
-    "power-assert": "1.2.0",
+    "nyc": "5.6.0",
     "webpack": "1.12.11",
     "webpack-dev-server": "1.14.1"
+  },
+  "ava": {
+    "files": [
+      "test/**/*.js"
+    ]
   }
 }
