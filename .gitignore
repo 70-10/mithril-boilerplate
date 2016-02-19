@@ -39,3 +39,4 @@ node_modules
 dist/*
 esdoc/*
 !.gitkeep
+.nyc_output
