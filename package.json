@@ -14,7 +14,7 @@
     "test": "nyc ava",
     "doc": "esdoc -c esdoc.json",
     "report": "nyc report --reporter=html",
-    "clean": "de esdoc dist coverage .nyc_output",
+    "clean": "del esdoc dist coverage .nyc_output",
     "lint": "eslint src"
   },
   "repository": {
