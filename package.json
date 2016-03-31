@@ -1,33 +1,17 @@
 {
   "name": "mithril-boilerplate",
   "version": "0.1.0",
-  "description": "",
-  "engines": {
-    "node": ">=4.2.0"
+  "ava": {
+    "files": [
+      "test/**/*.js"
+    ],
+    "require": [
+      "babel-register"
+    ]
   },
-  "main": "index.js",
-  "scripts": {
-    "build": "webpack --progress --colors -p",
-    "build:watch": "webpack --progress --colors --watch -p",
-    "build:release": "NODE_ENV=production webpack --progress --colors -p",
-    "server": "webpack-dev-server --history-api-fallback --hot --inline --progress --colors --port 3000",
-    "test": "nyc ava",
-    "doc": "esdoc -c esdoc.json",
-    "report": "nyc report --reporter=html",
-    "clean": "del esdoc dist coverage .nyc_output",
-    "lint": "eslint src"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/70-10/mithril-boilerplate.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/70-10/mithril-boilerplate/issues"
   },
-  "homepage": "https://github.com/70-10/mithril-boilerplate#readme",
   "dependencies": {
     "mithril": "0.2.3"
   },
@@ -46,12 +30,26 @@
     "webpack": "1.12.14",
     "webpack-dev-server": "1.14.1"
   },
-  "ava": {
-    "files": [
-      "test/**/*.js"
-    ],
-    "require": [
-      "babel-register"
-    ]
+  "engines": {
+    "node": ">=4.2.0"
+  },
+  "homepage": "https://github.com/70-10/mithril-boilerplate#readme",
+  "keywords": [],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/70-10/mithril-boilerplate.git"
+  },
+  "scripts": {
+    "build": "webpack --progress --colors -p",
+    "build:release": "NODE_ENV=production webpack --progress --colors -p",
+    "build:watch": "webpack --progress --colors --watch -p",
+    "clean": "del esdoc dist coverage .nyc_output",
+    "doc": "esdoc -c esdoc.json",
+    "lint": "eslint src",
+    "report": "nyc report --reporter=html",
+    "server": "webpack-dev-server --history-api-fallback --hot --inline --progress --colors --port 3000",
+    "test": "nyc ava"
   }
 }
